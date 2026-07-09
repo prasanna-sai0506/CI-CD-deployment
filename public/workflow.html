@@ -66,9 +66,9 @@
         <section class="card">
           <h3 style="margin-bottom: 0.75rem; color: #a78bfa;">Where to Look in the Project</h3>
           <ul class="workflow-mini-list">
-            <li><strong>CI/CD workflow:</strong> <span class="mono">.github/workflows/deploy.yml</span></li>
-            <li><strong>Container build:</strong> <span class="mono">Dockerfile</span></li>
-            <li><strong>App server:</strong> <span class="mono">index.js</span></li>
+            <li><strong>CI/CD workflow:</strong> <a href="/.github/workflows/deploy.yml" class="link-btn">.github/workflows/deploy.yml</a></li>
+            <li><strong>Container build:</strong> <a href="/Dockerfile" class="link-btn">Dockerfile</a></li>
+            <li><strong>App server:</strong> <a href="/index.js" class="link-btn">index.js</a></li>
             <li><strong>Live run history:</strong> <a href="/dashboard" class="link-btn">Pipeline Dashboard</a></li>
           </ul>
         </section>
@@ -103,61 +103,6 @@
             <span class="workflow-chip">Deploy</span>
           </div>
         </section>
-
-        <section class="card">
-          <h3 style="margin-bottom: 1rem; color: #a78bfa;">Live Pipeline View</h3>
-          <div id="workflow-status-banner" class="status-banner unknown" style="margin-bottom: 1rem;">
-            <span id="workflow-status-banner-icon">⚪</span>
-            <span id="workflow-status-banner-text">Loading pipeline status...</span>
-          </div>
-
-          <div class="setup-panel">
-            <div class="form-group">
-              <label for="workflow-owner-input">GitHub Owner / Organization</label>
-              <input type="text" id="workflow-owner-input" placeholder="e.g., octocat" value="">
-            </div>
-            <div class="form-group">
-              <label for="workflow-repo-input">GitHub Repository Name</label>
-              <input type="text" id="workflow-repo-input" placeholder="e.g., hello-world" value="">
-            </div>
-            <button id="workflow-save-config-btn" class="btn-secondary">Fetch Pipeline</button>
-          </div>
-
-          <div class="deployed-info" style="margin-top: 1rem;">
-            <div>
-              <span>Currently Deployed Commit: </span>
-              <span id="workflow-deployed-sha" class="mono">Loading...</span>
-            </div>
-            <div style="display: flex; align-items: center; gap: 0.5rem;">
-              <span id="workflow-refresh-status" style="font-size: 0.8rem; color: var(--text-muted);">Refreshing in 30s</span>
-              <button id="workflow-manual-refresh-btn" class="btn-secondary" style="height: auto; padding: 0.25rem 0.75rem; font-size: 0.8rem;">Refresh Now</button>
-            </div>
-          </div>
-
-          <div class="table-container" style="margin-top: 1rem;">
-            <table>
-              <thead>
-                <tr>
-                  <th>Run #</th>
-                  <th>Trigger</th>
-                  <th>Branch</th>
-                  <th>Commit Message</th>
-                  <th>Status</th>
-                  <th>Duration</th>
-                  <th>Timestamp</th>
-                  <th>Logs</th>
-                </tr>
-              </thead>
-              <tbody id="workflow-runs-table-body">
-                <tr>
-                  <td colspan="8" style="text-align: center; color: var(--text-secondary); padding: 2rem;">
-                    Enter GitHub Owner and Repository name above to fetch pipeline history.
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
       </aside>
     </div>
   </main>
@@ -165,7 +110,5 @@
   <footer>
     <p>&copy; 2026 CI/CD Deployment Pipeline Demo Project. Built with Node.js & GitHub Actions.</p>
   </footer>
-
-  <script src="/workflow.js"></script>
 </body>
 </html>
