@@ -1,15 +1,15 @@
 # Stage 1: Builder for preparing dependencies
 FROM node:20-alpine AS builder
 WORKDIR /app
-COPY package*.json ./
-RUN npm install
+COPY package*.json package-lock.json ./
+RUN npm ci
 COPY . .
 
 # Stage 2: Production Runner
 FROM node:20-alpine AS runner
 WORKDIR /app
-COPY package*.json ./
-RUN npm install --omit=dev
+COPY package*.json package-lock.json ./
+RUN npm ci --omit=dev
 COPY . .
 
 # Clean up development configs
