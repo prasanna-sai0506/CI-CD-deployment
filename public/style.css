@@ -364,6 +364,129 @@ p.subtitle {
   color: #bfdbfe;
 }
 
+.workflow-execution-shell {
+  margin-top: 1.25rem;
+  padding: 1.25rem;
+  border-radius: 1rem;
+  border: 1px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.workflow-execution-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.workflow-execution-header h4 {
+  font-size: 1rem;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.workflow-execution-header p {
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+}
+
+.workflow-execution-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.workflow-execution-empty {
+  padding: 1rem;
+  color: var(--text-secondary);
+  text-align: center;
+  border-radius: 0.75rem;
+  border: 1px dashed var(--border-color);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.workflow-job-card {
+  padding: 1rem;
+  border-radius: 0.9rem;
+  border: 1px solid var(--border-color);
+  background: rgba(13, 6, 23, 0.35);
+}
+
+.workflow-job-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 0.85rem;
+}
+
+.workflow-job-header h4 {
+  font-size: 0.98rem;
+  margin-bottom: 0.2rem;
+  color: var(--text-primary);
+}
+
+.workflow-job-header p {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.workflow-step-list {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.workflow-step-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.65rem 0.8rem;
+  border-radius: 0.65rem;
+  border: 1px solid rgba(147, 51, 234, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.workflow-step-row.is-success {
+  border-color: rgba(16, 185, 129, 0.18);
+}
+
+.workflow-step-row.is-failure,
+.workflow-step-row.is-cancelled,
+.workflow-step-row.is-timed_out {
+  border-color: rgba(239, 68, 68, 0.18);
+}
+
+.workflow-step-name {
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+.workflow-step-meta {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.workflow-run-row.is-selected td {
+  background: rgba(139, 92, 246, 0.08);
+}
+
+.workflow-inspect-btn {
+  height: auto;
+  padding: 0.35rem 0.65rem;
+  font-size: 0.78rem;
+}
+
+@media (max-width: 840px) {
+  .workflow-execution-header,
+  .workflow-job-header,
+  .workflow-step-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
 /* Status Banner styling */
 .status-banner {
   border-radius: 0.75rem;
