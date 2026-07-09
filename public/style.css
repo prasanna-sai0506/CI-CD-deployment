@@ -233,6 +233,137 @@ p.subtitle {
   gap: 2rem;
 }
 
+/* Workflow page styling */
+.workflow-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.9fr;
+  gap: 2rem;
+}
+
+@media (max-width: 900px) {
+  .workflow-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.workflow-path {
+  display: grid;
+  gap: 1rem;
+}
+
+.workflow-step {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 1rem;
+  align-items: start;
+  padding: 1rem 1.15rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.9rem;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.workflow-step .step-index {
+  width: 56px;
+  height: 56px;
+  border-radius: 1rem;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.85), rgba(236, 72, 153, 0.85));
+  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.25);
+}
+
+.workflow-step h3 {
+  margin-bottom: 0.35rem;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.workflow-step p {
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+}
+
+.workflow-mini-list {
+  list-style: none;
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.workflow-mini-list li {
+  padding: 0.8rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text-secondary);
+}
+
+.workflow-mini-list strong {
+  color: var(--text-primary);
+}
+
+.workflow-badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.workflow-chip {
+  padding: 0.45rem 0.75rem;
+  border-radius: 9999px;
+  border: 1px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.workflow-flow {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.workflow-flow-item {
+  border: 1px solid var(--border-color);
+  border-radius: 0.9rem;
+  padding: 1rem 1.15rem;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.workflow-flow-item .label {
+  display: inline-flex;
+  margin-bottom: 0.55rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  background: rgba(139, 92, 246, 0.18);
+  color: #c4b5fd;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.workflow-flow-item h4 {
+  margin-bottom: 0.35rem;
+  color: var(--text-primary);
+}
+
+.workflow-flow-item p {
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+}
+
+.workflow-callout {
+  margin-top: 1rem;
+  padding: 1rem 1.1rem;
+  border-radius: 0.85rem;
+  border: 1px solid rgba(59, 130, 246, 0.22);
+  background: rgba(59, 130, 246, 0.08);
+  color: #bfdbfe;
+}
+
 /* Status Banner styling */
 .status-banner {
   border-radius: 0.75rem;

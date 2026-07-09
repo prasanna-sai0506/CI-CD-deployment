@@ -23,6 +23,11 @@ app.get('/dashboard', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'dashboard.html'));
 });
 
+// Workflow route (serves workflow.html)
+app.get('/workflow', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'workflow.html'));
+});
+
 // Fallback 404 handler
 app.use((req, res) => {
   res.status(404).json({ error: 'Route not found' });

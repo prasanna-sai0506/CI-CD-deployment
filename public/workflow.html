@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CI/CD Workflow</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <div class="logo">
+        <div class="logo-icon"></div>
+        CI/CD Deployment App
+      </div>
+      <nav class="nav-links">
+        <a href="/">App Home</a>
+        <a href="/workflow" class="active">Workflow</a>
+        <a href="/dashboard">Pipeline Dashboard</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="workflow-grid">
+      <section class="card">
+        <h1>How the CI/CD Workflow Runs</h1>
+        <p class="subtitle">This page shows how code moves from a GitHub push into a deployed Render release.</p>
+
+        <div class="workflow-path">
+          <div class="workflow-step">
+            <div class="step-index">1</div>
+            <div>
+              <h3>Developer pushes code to GitHub</h3>
+              <p>The workflow starts when code is pushed to the main branch or a pull request targets main.</p>
+            </div>
+          </div>
+
+          <div class="workflow-step">
+            <div class="step-index">2</div>
+            <div>
+              <h3>CI validates the code</h3>
+              <p>GitHub Actions installs dependencies, runs linting, runs Jest tests, and checks the build step. If any check fails, deployment stops here.</p>
+            </div>
+          </div>
+
+          <div class="workflow-step">
+            <div class="step-index">3</div>
+            <div>
+              <h3>Docker image is created</h3>
+              <p>When CI passes, the pipeline builds a Docker image from the Dockerfile so the app runs in a repeatable environment.</p>
+            </div>
+          </div>
+
+          <div class="workflow-step">
+            <div class="step-index">4</div>
+            <div>
+              <h3>Image is pushed and deploy hook runs</h3>
+              <p>The image is tagged and pushed to Docker Hub, then GitHub Actions calls the Render deploy hook to start production deployment.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <aside style="display: flex; flex-direction: column; gap: 1.5rem;">
+        <section class="card">
+          <h3 style="margin-bottom: 0.75rem; color: #a78bfa;">Where to Look in the Project</h3>
+          <ul class="workflow-mini-list">
+            <li><strong>CI/CD workflow:</strong> <a href="/.github/workflows/deploy.yml" class="link-btn">.github/workflows/deploy.yml</a></li>
+            <li><strong>Container build:</strong> <a href="/Dockerfile" class="link-btn">Dockerfile</a></li>
+            <li><strong>App server:</strong> <a href="/index.js" class="link-btn">index.js</a></li>
+            <li><strong>Live run history:</strong> <a href="/dashboard" class="link-btn">Pipeline Dashboard</a></li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h3 style="margin-bottom: 0.75rem; color: #a78bfa;">What CI/CD Is For</h3>
+          <div class="workflow-flow">
+            <div class="workflow-flow-item">
+              <span class="label">CI</span>
+              <h4>Find problems early</h4>
+              <p>Tests and linting catch broken changes before they reach production.</p>
+            </div>
+            <div class="workflow-flow-item">
+              <span class="label">CD</span>
+              <h4>Deploy automatically</h4>
+              <p>Once checks pass, the exact same code gets packaged and deployed without manual steps.</p>
+            </div>
+          </div>
+          <div class="workflow-callout">
+            The live deployment is visible in the dashboard because it reads the latest GitHub Actions run and the deployed commit SHA.
+          </div>
+        </section>
+
+        <section class="card">
+          <h3 style="margin-bottom: 0.75rem; color: #a78bfa;">Quick Summary</h3>
+          <div class="workflow-badge-row">
+            <span class="workflow-chip">Push</span>
+            <span class="workflow-chip">Lint</span>
+            <span class="workflow-chip">Test</span>
+            <span class="workflow-chip">Build</span>
+            <span class="workflow-chip">Docker</span>
+            <span class="workflow-chip">Deploy</span>
+          </div>
+        </section>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 CI/CD Deployment Pipeline Demo Project. Built with Node.js & GitHub Actions.</p>
+  </footer>
+</body>
+</html>
