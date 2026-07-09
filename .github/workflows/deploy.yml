@@ -20,24 +20,16 @@ jobs:
           node-version: 20
 
       - name: Install Dependencies
-        run: |
-          cd my-web-app
-          npm install
+        run: npm install
 
       - name: Run Linter
-        run: |
-          cd my-web-app
-          npm run lint
+        run: npm run lint
 
       - name: Run Tests
-        run: |
-          cd my-web-app
-          npm test
+        run: npm test
 
       - name: Build Application
-        run: |
-          cd my-web-app
-          npm run build
+        run: npm run build
 
   dockerize-and-deploy:
     name: Dockerize and Deploy
@@ -65,8 +57,8 @@ jobs:
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v5
         with:
-          context: ./my-web-app
-          file: ./my-web-app/Dockerfile
+          context: .
+          file: ./Dockerfile
           push: true
           build-args: |
             GIT_SHA=${{ github.sha }}
