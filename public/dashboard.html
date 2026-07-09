@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CI/CD Pipeline Live Dashboard</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <div class="logo">
+        <div class="logo-icon"></div>
+        CI/CD Deployment App
+      </div>
+      <nav class="nav-links">
+        <a href="/">App Home</a>
+        <a href="/dashboard" class="active">Pipeline Dashboard</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="dashboard-grid">
+      <!-- Title Section -->
+      <div>
+        <h1>CI/CD Pipeline Live Dashboard</h1>
+        <p class="subtitle">Real-time status of automated test, build, and deploy workflows.</p>
+      </div>
+
+      <!-- Top Banner (Operational Status) -->
+      <div id="status-banner" class="status-banner unknown">
+        <span id="status-banner-icon">⚪</span>
+        <span id="status-banner-text">Loading pipeline status...</span>
+      </div>
+
+      <!-- GitHub Repo Configuration Panel -->
+      <section class="card" style="padding: 1.5rem;">
+        <h3 style="margin-bottom: 1rem; font-size: 1rem; color: #a78bfa;">Pipeline Data Source</h3>
+        <div class="setup-panel">
+          <div class="form-group">
+            <label for="owner-input">GitHub Owner / Organization</label>
+            <input type="text" id="owner-input" placeholder="e.g., octocat" value="">
+          </div>
+          <div class="form-group">
+            <label for="repo-input">GitHub Repository Name</label>
+            <input type="text" id="repo-input" placeholder="e.g., hello-world" value="">
+          </div>
+          <button id="save-config-btn" class="btn-secondary">Fetch Pipeline</button>
+        </div>
+        <p style="margin-top: 0.75rem; font-size: 0.8rem; color: var(--text-muted);">
+          Note: This dashboard requests public workflow logs directly from the GitHub REST API. No auth token is needed for public repositories.
+        </p>
+      </section>
+
+      <!-- Dashboard Main Section -->
+      <section class="card">
+        <!-- Deployed Info Header -->
+        <div class="deployed-info">
+          <div>
+            <span>Currently Deployed Commit: </span>
+            <span id="deployed-sha" class="mono">Loading...</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span id="refresh-status" style="font-size: 0.8rem; color: var(--text-muted);">Refreshing in 30s</span>
+            <button id="manual-refresh-btn" class="btn-secondary" style="height: auto; padding: 0.25rem 0.75rem; font-size: 0.8rem;">Refresh Now</button>
+          </div>
+        </div>
+
+        <!-- Table -->
+        <div class="table-container" style="margin-top: 1.5rem;">
+          <table>
+            <thead>
+              <tr>
+                <th>Run #</th>
+                <th>Trigger</th>
+                <th>Branch</th>
+                <th>Commit Message</th>
+                <th>Status</th>
+                <th>Duration</th>
+                <th>Timestamp</th>
+                <th>Logs</th>
+              </tr>
+            </thead>
+            <tbody id="runs-table-body">
+              <tr>
+                <td colspan="8" style="text-align: center; color: var(--text-secondary); padding: 2rem;">
+                  Enter GitHub Owner and Repository name above to fetch pipeline history.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 CI/CD Deployment Pipeline Demo Project. Built with Node.js & GitHub Actions.</p>
+  </footer>
+
+  <script src="/dashboard.js"></script>
+</body>
+</html>

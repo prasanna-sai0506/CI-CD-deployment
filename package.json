@@ -1,0 +1,24 @@
+{
+  "name": "my-web-app",
+  "version": "1.0.0",
+  "description": "CI/CD Pipeline for Web Application Deployment Demo App",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "build": "echo \"Build completed successfully (no-op for frontend assets)\"",
+    "lint": "eslint .",
+    "test": "jest"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "eslint": "^9.5.0",
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "private": true
+}

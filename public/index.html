@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CI/CD Demo Application</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <div class="logo">
+        <div class="logo-icon"></div>
+        CI/CD Deployment App
+      </div>
+      <nav class="nav-links">
+        <a href="/" class="active">App Home</a>
+        <a href="/dashboard">Pipeline Dashboard</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="welcome-grid">
+      <div class="card">
+        <h1>Welcome to the Deployed App!</h1>
+        <p class="subtitle">A containerized Node.js application deployed automatically via GitHub Actions.</p>
+        
+        <p style="margin-bottom: 1.5rem; color: var(--text-secondary);">
+          This web application is the core deliverable representing the target of our automated CI/CD pipeline. Every commit pushed to the main branch is built, tested, packaged into a Docker image, pushed to Docker Hub, and deployed seamlessly to hosting.
+        </p>
+
+        <h3>Core App Features Installed:</h3>
+        <ul class="features-list">
+          <li><strong>Production-grade Health Checks:</strong> Available at <a href="/health" class="link-btn" target="_blank">/health</a> returning structured diagnostics.</li>
+          <li><strong>Live Commit Integrity:</strong> Integrated build argument exposing the Git SHA at <a href="/api/version" class="link-btn" target="_blank">/api/version</a>.</li>
+          <li><strong>Real-time Pipeline Dashboard:</strong> Visual monitoring of GitHub Actions at <a href="/dashboard" class="link-btn">/dashboard</a>.</li>
+          <li><strong>Containerized Isolation:</strong> Packaged via multi-stage alpine Docker containers.</li>
+        </ul>
+
+        <div style="margin-top: 2rem;">
+          <a href="/dashboard" class="btn">View Live Status Dashboard</a>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+        <div class="card" style="padding: 1.5rem;">
+          <h3 style="margin-bottom: 1rem; font-size: 1.1rem; color: #a78bfa;">System Status</h3>
+          <div class="status-pill-container" style="margin-top: 0; background: rgba(16, 185, 129, 0.05); border-color: rgba(16, 185, 129, 0.2);">
+            <div class="status-dot"></div>
+            <span style="color: var(--color-success); font-weight: 600; font-size: 0.85rem;">App: Online</span>
+          </div>
+          
+          <div style="margin-top: 1.5rem; font-size: 0.85rem; color: var(--text-secondary);">
+            <div style="margin-bottom: 0.5rem;"><strong>Port:</strong> 3000</div>
+            <div style="margin-bottom: 0.5rem;"><strong>Engine:</strong> Node.js + Express</div>
+            <div style="margin-bottom: 0.5rem;">
+              <strong>Live Commit:</strong> 
+              <span id="current-commit" class="mono">Loading...</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card" style="padding: 1.5rem; background: rgba(59, 130, 246, 0.05); border-color: rgba(59, 130, 246, 0.15);">
+          <h3 style="margin-bottom: 0.75rem; font-size: 1.1rem; color: #60a5fa; display: flex; align-items: center; gap: 0.5rem;">
+            <span>ℹ️</span> Info Note
+          </h3>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4;">
+            This is a standard demo project. The live environment is fully decoupled from the build configuration, retrieving variables from environment injections during Docker image creation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 CI/CD Deployment Pipeline Demo Project. Built with Node.js & GitHub Actions.</p>
+  </footer>
+
+  <script>
+    // Fetch and display current version/git SHA
+    fetch('/api/version')
+      .then(res => res.json())
+      .then(data => {
+        const commitEl = document.getElementById('current-commit');
+        if (data.version && data.version !== 'development') {
+          commitEl.textContent = data.version.substring(0, 7);
+          commitEl.title = data.version;
+        } else {
+          commitEl.textContent = 'local-dev';
+        }
+      })
+      .catch(() => {
+        document.getElementById('current-commit').textContent = 'unknown';
+      });
+  </script>
+</body>
+</html>
