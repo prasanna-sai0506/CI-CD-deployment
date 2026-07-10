@@ -36,7 +36,7 @@ Developer → git push → GitHub Repo
 - **Jest/Supertest:** Thorough unit testing for standard routes and 404 behavior.
 - **Dockerization:** Multi-stage `Dockerfile` optimizing build size and dependencies.
 - **GitHub Actions:** Structured flow separating linting, testing, dockerization, and triggering Render Webhooks.
-- **Pipeline Dashboard:** A real-time client-side status page displaying the last 15 workflow runs (with statuses, runtimes, trigger logs) by calling the GitHub REST API directly.
+- **Pipeline Dashboard:** A real-time client-side status page displaying the last 15 workflow runs across one or more repositories (with statuses, runtimes, trigger logs) by calling the GitHub REST API directly.
 
 ## Setup Instructions
 
@@ -74,7 +74,7 @@ docker run -p 3000:3000 my-web-app:latest
 ## Live Dashboard
 
 The dashboard page is hosted alongside the app at `/dashboard`.
-When you first open it, enter your GitHub **Owner** and **Repository name** in the configuration panel to load the run logs.
+When you first open it, enter your GitHub **Owner** and one or more **Repository names** in the configuration panel to load the run logs. Separate multiple repositories with commas or new lines.
 The page auto-updates every 30 seconds to fetch the latest pipeline events.
 
 ## "Proof It Works" (Failing Test Demo)

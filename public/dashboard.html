@@ -44,13 +44,13 @@
             <input type="text" id="owner-input" placeholder="e.g., octocat" value="">
           </div>
           <div class="form-group">
-            <label for="repo-input">GitHub Repository Name</label>
-            <input type="text" id="repo-input" placeholder="e.g., hello-world" value="">
+            <label for="repo-input">GitHub Repository Names</label>
+            <input type="text" id="repo-input" placeholder="e.g., hello-world, service-api, docs-site" value="">
           </div>
           <button id="save-config-btn" class="btn-secondary">Fetch Pipeline</button>
         </div>
         <p style="margin-top: 0.75rem; font-size: 0.8rem; color: var(--text-muted);">
-          Note: This dashboard requests public workflow logs directly from the GitHub REST API. No auth token is needed for public repositories.
+          Note: Separate multiple repositories with commas or new lines. This dashboard requests public workflow logs directly from the GitHub REST API, so no auth token is needed for public repositories.
         </p>
       </section>
 
@@ -73,6 +73,7 @@
           <table>
             <thead>
               <tr>
+                  <th>Repo</th>
                 <th>Run #</th>
                 <th>Trigger</th>
                 <th>Branch</th>
@@ -85,8 +86,8 @@
             </thead>
             <tbody id="runs-table-body">
               <tr>
-                <td colspan="8" style="text-align: center; color: var(--text-secondary); padding: 2rem;">
-                  Enter GitHub Owner and Repository name above to fetch pipeline history.
+                <td colspan="9" style="text-align: center; color: var(--text-secondary); padding: 2rem;">
+                  Enter GitHub Owner and one or more Repository names above to fetch pipeline history.
                 </td>
               </tr>
             </tbody>
